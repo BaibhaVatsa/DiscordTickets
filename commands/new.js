@@ -106,10 +106,14 @@ module.exports = {
 					.addField("Channel", c, true)
 					.setFooter(`DiscordTickets`)
 					.setTimestamp();
+				client.channels.get(config.mentorTicketsChannel).send({
+					embed
+				})
 				client.channels.get(config.logChannel).send({
 					embed
 				})
 			} else {
+				client.channels.get(config.mentorTicketsChannel).send(`New ticket created by **${message.author.tag} (${message.author.id})**`);
 				client.channels.get(config.logChannel).send(`New ticket created by **${message.author.tag} (${message.author.id})**`);
 			}
 			log.info(`${message.author.tag} created a new ticket (#ticket-${id})`)

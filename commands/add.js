@@ -7,7 +7,7 @@ module.exports = {
   usage: '<@member>',
   aliases: ['adduser'],
   example: 'add @exampleUser',
-  args: true,
+  args: false,
   cooldown: config.cooldown,
   guildOnly: true,
   execute(message, args) {
@@ -24,18 +24,18 @@ module.exports = {
         return message.channel.send(`:x: **This command can only be used within a ticket channel**`)
       }
     }
-
-    let user = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-    if(!user) {
-      if(config.useEmbeds) {
-        const err1 = new Discord.RichEmbed()
-            .setColor("#E74C3C")
-            .setDescription(`:x: **Unknown user.** Please mention a valid user.`)
-            return message.channel.send(err1);
-      } else {
-        return message.channel.send(`:x: **Unknown user.** Please mention a valid user.`);
-      }
-    }
+    let user = message.author
+    // let user = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+    // if(!user) {
+    //   if(config.useEmbeds) {
+    //     const err1 = new Discord.RichEmbed()
+    //         .setColor("#E74C3C")
+    //         .setDescription(`:x: **Unknown user.** Please mention a valid user.`)
+    //         return message.channel.send(err1);
+    //   } else {
+    //     return message.channel.send(`:x: **Unknown user.** Please mention a valid user.`);
+    //   }
+    // }
     try {
     message.channel.overwritePermissions(user, {
       SEND_MESSAGES: true,
