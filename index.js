@@ -42,12 +42,19 @@
 
 ###############################################################################################
 */
-
+require('dotenv').config();
 const fs = require('fs');
 const Discord = require('discord.js');
 const leeks = require('leeks.js');
 const log = require(`leekslazylogger`);
 const config = require('./config.json');
+config.guildID = process.env.guildID;
+config.supportRole = process.env.supportRole;
+config.ticketsCat = process.env.ticketsCat;
+config.logChannel = process.env.logChannel;
+config.mentorTicketsChannel = process.env.mentorTicketsChannel;
+config.token = process.env.token;
+console.log(config.token);
 const { version, homepage } = require('./package.json');
 const client = new Discord.Client();
 client.commands = new Discord.Collection();
