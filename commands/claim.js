@@ -2,11 +2,11 @@ const Discord = require('discord.js');
 const config = require('../config.json');
 const log = require(`leekslazylogger`);
 module.exports = {
-  name: 'add',
-  description: 'Add a member to a ticket channel',
-  usage: '<@member>',
-  aliases: ['adduser'],
-  example: 'add @exampleUser',
+  name: 'claim',
+  description: 'Claim a ticket',
+  usage: '',
+  aliases: ['claimticket'],
+  example: 'claim',
   args: false,
   cooldown: config.cooldown,
   guildOnly: true,

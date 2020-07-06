@@ -1,5 +1,6 @@
 package-lock.json
 .commands/
+.env
 logs/
 *.log
 node_modules/
