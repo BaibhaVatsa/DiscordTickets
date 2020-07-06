@@ -1,6 +1,6 @@
 {
   "prefix": "!",
-  "name": "test-stuff",
+  "name": "Mentorship Ticket Bot",
   "colour": "#009999",
   "playing": "with tickets (!help)",
   "activityType": "PLAYING",
