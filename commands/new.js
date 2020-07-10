@@ -60,11 +60,11 @@ module.exports = {
 				SEND_MESSAGES: true
 			})
 			c.setTopic(`${message.author} | ${topic}`);
-			if (config.tagHereOnly) {
-				await c.send(`@here, a user has created a new ticket.\n`);
-			} else {
-				await c.send(`<@&${config.supportRole}>, a user has created a new ticket.\n`);
-			};
+			// if (config.tagHereOnly) {
+			// 	await c.send(`@here, a user has created a new ticket.\n`);
+			// } else {
+			// 	await c.send(`<@&${config.supportRole}>, a user has created a new ticket.\n`);
+			// };
 
 			if (config.ticketImage) {
 				await c.send(`__**Here's your ticket channel, ${message.author}**__`, {
