@@ -10,11 +10,11 @@ module.exports = {
 	example: 'new I found an error',
 	args: true,
 	cooldown: config.cooldown,
-	guildOnly: true,
+	guildOnly: false,
 	execute(message, args) {
 		const client = message.client;
 		// command starts here
-		message.delete();
+		// message.delete();
 		let topic = args.join(" ");
 
 		// let num = randomString({

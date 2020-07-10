@@ -248,11 +248,11 @@ client.on('message', async message => {
         .setTitle("Command Used")
         .addField("Username", message.author, true)
         .addField("Command", command.name, true)
-        .addField("Args", args, true)
+        // .addField("Args", (args ? args.toString() : ""), true)
         .setTimestamp();
       client.channels.get(config.logChannel).send({embed})
     } else {
-      client.channels.get(config.logChannel).send(`**${message.author.tag} (${message.author.id})** used the \`${command.name}\` command with arguments \`${args}\`.`);
+      client.channels.get(config.logChannel).send(`**${message.author.tag} (${message.author.id})** used the \`${command.name}\`.`);
     }
     log.console(`${message.author.tag} used the '${command.name}' command`)
   } catch (error) {

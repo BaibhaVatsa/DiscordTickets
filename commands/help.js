@@ -10,19 +10,14 @@ module.exports = {
 	example: 'help new',
   args: false,
   cooldown: config.cooldown,
-	guildOnly: true,
+	guildOnly: false,
   execute(message, args) {
     const client = message.client;
     // command starts here
-    message.delete();
+    // message.delete();
 
 		const data = [];
 		const { commands } = message.client;
-
-
-
-
-
 
     if (config.useEmbeds) {
 			if (!args.length) {

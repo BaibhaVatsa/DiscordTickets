@@ -13,7 +13,7 @@ module.exports = {
   execute(message, args) {
     const client = message.client;
     // command starts here
-    message.delete();
+    // message.delete();
     if(!message.channel.name.startsWith('ticket-')) { // // !message.channel.name.length() == 15 &&
       if(config.useEmbeds) {
         const notTicket = new Discord.RichEmbed()
