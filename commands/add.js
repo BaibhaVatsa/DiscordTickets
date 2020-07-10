@@ -2,11 +2,11 @@ const Discord = require('discord.js');
 const config = require('../config.json');
 const log = require(`leekslazylogger`);
 module.exports = {
-  name: 'claim',
-  description: 'Claim a ticket',
-  usage: '',
-  aliases: ['claimticket'],
-  example: 'claim',
+  name: 'add',
+  description: 'Add a member to a ticket channel',
+  usage: '<@member>',
+  aliases: ['adduser'],
+  example: 'add @exampleUser',
   args: false,
   cooldown: config.cooldown,
   guildOnly: true,
@@ -24,18 +24,18 @@ module.exports = {
         return message.channel.send(`:x: **This command can only be used within a ticket channel**`)
       }
     }
-    let user = message.author
-    // let user = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
-    // if(!user) {
-    //   if(config.useEmbeds) {
-    //     const err1 = new Discord.RichEmbed()
-    //         .setColor("#E74C3C")
-    //         .setDescription(`:x: **Unknown user.** Please mention a valid user.`)
-    //         return message.channel.send(err1);
-    //   } else {
-    //     return message.channel.send(`:x: **Unknown user.** Please mention a valid user.`);
-    //   }
-    // }
+    // let user = message.author
+    let user = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+    if(!user) {
+      if(config.useEmbeds) {
+        const err1 = new Discord.RichEmbed()
+            .setColor("#E74C3C")
+            .setDescription(`:x: **Unknown user.** Please mention a valid user.`)
+            return message.channel.send(err1);
+      } else {
+        return message.channel.send(`:x: **Unknown user.** Please mention a valid user.`);
+      }
+    }
     try {
     message.channel.overwritePermissions(user, {
       SEND_MESSAGES: true,
@@ -59,7 +59,6 @@ module.exports = {
         .addField("Username", user, true)
         .addField("Added by", message.author, true)
         .addField("Channel", message.channel, true)
-        // .setFooter(`DiscordTickets`)
         .setTimestamp();
       client.channels.get(config.logChannel).send({embed})
     } else {

@@ -108,7 +108,7 @@ client.once('ready', () => { // after bot has logged in
       .setAuthor(`${client.user.username} / Ticket Log`, client.user.avatarURL)
       .setColor("#2ECC71")
       .setDescription(":white_check_mark: **Started succesfully**")
-      .setFooter(`DiscordTickets by Eartharoid`);
+      // .setFooter(`DiscordTickets by Eartharoid`);
     client.channels.get(config.logChannel).send(embed)
   } else {
     client.channels.get(config.logChannel).send(":white_check_mark: **Started succesfully**")
@@ -124,7 +124,7 @@ client.once('ready', () => { // after bot has logged in
         .setAuthor(`${client.user.username} / Ticket Log`, client.user.avatarURL)
         .setColor("#2ECC71")
         .setDescription(":white_check_mark: **Required permissions have been granted**")
-        .setFooter(`DiscordTickets by Eartharoid`);
+        // .setFooter(`DiscordTickets by Eartharoid`);
       client.channels.get(config.logChannel).send(embed)
     } else {
       client.channels.get(config.logChannel).send(":white_check_mark: **Started succesfully**")
@@ -137,7 +137,7 @@ client.once('ready', () => { // after bot has logged in
         .setAuthor(`${client.user.username} / Ticket Log`, client.user.avatarURL)
         .setColor("#E74C3C")
         .setDescription(":x: **Required permissions have not been granted**\nPlease give the bot the `ADMINISTRATOR` permission")
-        .setFooter(`DiscordTickets by Eartharoid`);
+        // .setFooter(`DiscordTickets by Eartharoid`);
       client.channels.get(config.logChannel).send({
         embed
       })
@@ -161,7 +161,7 @@ client.on('message', async message => {
           .setTitle("DM Logger")
           .addField("Username", message.author.tag, true)
           .addField("Message", message.content, true)
-          .setFooter(`DiscordTickets by Eartharoid`);
+          // .setFooter(`DiscordTickets by Eartharoid`);
         client.channels.get(config.logChannel).send(embed)
       } else {
         client.channels.get(config.logChannel).send(`DM received from **${message.author.tag} (${message.author.id})** : \n\n\`\`\`${message.content}\`\`\``);
@@ -248,11 +248,11 @@ client.on('message', async message => {
         .setTitle("Command Used")
         .addField("Username", message.author, true)
         .addField("Command", command.name, true)
-        .setFooter(`DiscordTickets`)
+        .addField("Args", args, true)
         .setTimestamp();
       client.channels.get(config.logChannel).send({embed})
     } else {
-      client.channels.get(config.logChannel).send(`**${message.author.tag} (${message.author.id})** used the \`${command.name}\` command`);
+      client.channels.get(config.logChannel).send(`**${message.author.tag} (${message.author.id})** used the \`${command.name}\` command with arguments \`${args}\`.`);
     }
     log.console(`${message.author.tag} used the '${command.name}' command`)
   } catch (error) {

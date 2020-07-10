@@ -6,7 +6,7 @@ module.exports = {
   description: 'Close a ticket',
   usage: '',
   aliases: ['none'],
-  example: '',
+  example: 'close',
   args: false,
   cooldown: config.cooldown,
   guildOnly: true,
@@ -34,7 +34,6 @@ module.exports = {
   					.setColor(config.colour)
   	        .addField("Username", message.author, true)
   	        .addField("Channel", message.channel.name, true)
-  	        .setFooter(`DiscordTickets`)
   					.setTimestamp();
   	      client.channels.get(config.logChannel).send({embed})
   	    } else {
